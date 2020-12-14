@@ -6,7 +6,11 @@ Nome repo: php-badwords -->
 
 <?php
 //paragrafo
-$testo = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+$testo = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+
+$badword = $_GET['badword']; //paramentro get per recuperare parola da censurare
+
+$testo_censurato = str_replace($badword, '***', $testo); //cambio valore sulla parola corrispondente alla badword
 
 $lunghezza_testo = strlen($testo); //variabile per lunghezza paragrafo
 
@@ -24,7 +28,13 @@ $lunghezza_testo = strlen($testo); //variabile per lunghezza paragrafo
     <body>
         <p>
             <?php
-
+            echo $testo_censurato;
+            ?>
+        </p>
+        <p>Numero caratteri:
+            <pre></pre>
+            <?php
+            echo $lunghezza_testo;
             ?>
         </p>
 
